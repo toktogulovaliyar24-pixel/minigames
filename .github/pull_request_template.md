@@ -18,12 +18,12 @@
 
 <!-- Describe what was implemented and check the acceptance criteria -->
 
-* [ ] Task requirements are implemented
-* [ ] ESLint passes without errors
-* [ ] Prettier passes without errors
-* [ ] The project builds successfully
-* [ ] No `console.log` statements
-* [ ] No unnecessary files or commented-out code
+- [ ] Task requirements are implemented
+- [ ] ESLint passes without errors
+- [ ] Prettier passes without errors
+- [ ] The project builds successfully
+- [ ] No `console.log` statements
+- [ ] No unnecessary files or commented-out code
 
 ## Score
 
