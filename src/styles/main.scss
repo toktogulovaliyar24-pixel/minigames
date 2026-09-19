@@ -1,2 +1,41 @@
 @use './abstracts/tokens';
 @use './utilities/utilities';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  color: tokens.$color-text;
+  background-color: tokens.$color-background;
+  font-family: Arial, sans-serif;
+}
+
+a {
+  color: tokens.$color-primary;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  padding-block: tokens.$spacing-md;
+  border-bottom: 1px solid #ddd;
+}
+
+nav {
+  display: flex;
+  gap: tokens.$spacing-md;
+}
+
+main {
+  padding-block: tokens.$spacing-xl;
+}
