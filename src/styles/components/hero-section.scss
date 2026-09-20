@@ -1,0 +1,155 @@
+@use '../abstracts' as theme;
+
+.page-container {
+  display: flex;
+  padding: theme.spacing('5') theme.spacing('15');
+  flex-direction: column;
+  align-items: flex-start;
+  gap: theme.spacing('5');
+  align-self: stretch;
+
+  @include theme.respond-to('tablet') {
+    padding: theme.spacing('3') theme.spacing('5');
+  }
+
+  @include theme.respond-to('mobile') {
+    padding: theme.spacing('2');
+  }
+}
+
+.hero-section {
+  position: relative;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: theme.spacing('14') theme.spacing('15');
+  display: flex;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    opacity: 0.2;
+    background-image: url('/hero-background.png');
+    background-position: 50%;
+    background-size: cover;
+    position: absolute;
+    inset: 0;
+  }
+
+  &::after {
+    content: '';
+    background-color: #1e1b3aa6;
+    position: absolute;
+    inset: 0;
+  }
+
+  @include theme.respond-to('tablet') {
+    padding: theme.spacing('9') theme.spacing('5');
+  }
+
+  @include theme.respond-to('mobile') {
+    padding: theme.spacing('8') theme.spacing('2');
+  }
+}
+
+.hero-card {
+  display: flex;
+  max-width: 640px;
+  padding: theme.spacing('6');
+  flex-direction: column;
+  align-items: flex-start;
+  gap: theme.spacing('3');
+  border-radius: theme.radius('xlarge');
+  border: 2px solid theme.$text-primary;
+  background: theme.$bg-primary;
+  box-shadow:
+    8px 8px theme.$text-primary,
+    inset 0 0 0 3px theme.$text-primary;
+
+  @include theme.respond-to('tablet') {
+    max-width: 480px;
+    padding: theme.spacing('3');
+    gap: theme.spacing('2');
+  }
+
+  @include theme.respond-to('mobile') {
+    max-width: 480px;
+    padding: theme.spacing('3');
+    gap: theme.spacing('2');
+  }
+}
+
+.hero-title {
+  color: theme.$text-primary;
+  font-size: theme.font-size('display-large');
+  font-weight: theme.font-weight('bold');
+  line-height: 110%;
+
+  @include theme.respond-to('tablet') {
+    font-size: theme.font-size('display-medium');
+    line-height: 115%;
+  }
+
+  @include theme.respond-to('mobile') {
+    font-size: theme.font-size('display-small');
+    line-height: 120%;
+  }
+}
+
+.hero-text {
+  color: theme.$text-secondary;
+  font-size: theme.font-size('body-large');
+  font-style: normal;
+  font-weight: theme.font-weight('medium');
+  line-height: 150%;
+
+  @include theme.respond-to('tablet') {
+    font-size: theme.font-size('body-small');
+    line-height: 140%;
+  }
+
+  @include theme.respond-to('mobile') {
+    font-size: theme.font-size('label-medium');
+    line-height: 140%;
+  }
+
+  &-full {
+    @include theme.respond-to('mobile') {
+      display: none;
+    }
+  }
+
+  &-short {
+    @include theme.respond-to('desktop') {
+      display: none;
+    }
+
+    @include theme.respond-to('mobile') {
+      display: inline-block;
+    }
+  }
+}
+
+.hero-button {
+  padding: theme.spacing('2') theme.spacing('3');
+  border-radius: theme.radius('small');
+  font-size: theme.font-size('body-large');
+  font-weight: theme.font-weight('bold');
+  transition: all linear 0.3s;
+  background: theme.$brand-primary;
+  box-shadow: inset 0 0 0 2px #111;
+
+  &:hover {
+    background-color: theme.$brand-primary-dark;
+  }
+
+  @include theme.respond-to('tablet') {
+    font-size: theme.font-size('body-small');
+    padding: 10px 20px;
+  }
+
+  @include theme.respond-to('mobile') {
+    font-size: theme.font-size('label-medium');
+    padding: 8px 16px;
+  }
+}

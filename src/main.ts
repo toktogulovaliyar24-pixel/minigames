@@ -1,11 +1,12 @@
 import './styles/main.scss';
-
 import { createApp } from './app/app';
 
-const root = document.querySelector<HTMLElement>('#app');
-
-if (!root) {
-  throw new Error('App root element not found');
+function createRoot(): HTMLElement {
+  const root = document.createElement('div');
+  root.id = 'app';
+  document.body.append(root);
+  return root;
 }
 
+const root = createRoot();
 createApp(root);
