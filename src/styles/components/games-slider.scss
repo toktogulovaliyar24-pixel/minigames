@@ -1,0 +1,253 @@
+@use '../abstracts' as theme;
+
+.slider-section .container {
+  display: flex;
+  padding: theme.spacing('5') theme.spacing('15');
+  flex-direction: column;
+  align-items: flex-start;
+  gap: theme.spacing('5');
+  align-self: stretch;
+
+  @include theme.respond-to('tablet') {
+    padding: theme.spacing('3') theme.spacing('5');
+  }
+
+  @include theme.respond-to('mobile') {
+    padding: theme.spacing('2');
+  }
+}
+
+.slider-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px 8px 8px;
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  width: max-content;
+  align-items: stretch;
+  gap: theme.spacing('1');
+  transition: transform 280ms ease;
+  --slider-offset: -176px;
+}
+
+.game-card {
+  position: relative;
+  display: flex;
+  height: 384px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 2.5px solid theme.$text-primary;
+  border-radius: theme.radius('xlarge');
+  background: theme.$color-white;
+  box-shadow: 4px 4px 0 theme.$text-primary;
+
+  &--peek {
+    width: 120px;
+  }
+
+  &--side {
+    width: 288px;
+  }
+
+  &--featured {
+    width: 816px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: theme.spacing('1');
+    padding: theme.spacing('2');
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.4) 17%,
+      rgba(0, 0, 0, 0.85) 100%
+    );
+    color: theme.$color-white;
+  }
+
+  h3 {
+    color: theme.$color-white;
+    font-size: theme.font-size('body-large');
+    font-weight: theme.font-weight('bold');
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: theme.font-size('body-medium');
+    font-weight: theme.font-weight('bold');
+
+    > span {
+      display: inline-flex;
+      align-items: center;
+      gap: theme.spacing('05');
+      white-space: nowrap;
+    }
+  }
+
+  &__star,
+  &__heart {
+    display: inline-flex;
+    width: 20px;
+    height: 19px;
+    flex: 0 0 20px;
+    color: theme.$brand-primary;
+  }
+
+  &__heart {
+    color: theme.$status-like;
+  }
+}
+
+@media (max-width: 1600px) and (min-width: 769px) {
+  .game-card {
+    &--peek {
+      width: 5vw;
+    }
+
+    &--side {
+      width: 14vw;
+    }
+
+    &--featured {
+      width: 42vw;
+    }
+  }
+}
+
+@include theme.respond-to('tablet') {
+  .game-card {
+    height: 300px;
+
+    &--peek {
+      width: 88px;
+    }
+
+    &--side {
+      width: 220px;
+    }
+
+    &--featured {
+      width: min(62vw, 580px);
+    }
+  }
+}
+
+@include theme.respond-to('mobile') {
+  .slider-track {
+    padding: 0;
+  }
+
+  .game-card {
+    height: 240px;
+
+    &--peek {
+      width: 56px;
+    }
+
+    &--side {
+      width: 156px;
+    }
+
+    &--featured {
+      width: 74vw;
+    }
+  }
+
+  .game-card__overlay {
+    padding: theme.spacing('1');
+  }
+
+  .game-card h3 {
+    font-size: theme.font-size('label-large');
+  }
+
+  .game-card__stats {
+    font-size: theme.font-size('label-medium');
+  }
+}
+
+.slider-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-subtitle {
+  display: flex;
+  align-items: center;
+  gap: theme.spacing('1');
+
+  &_accent {
+    width: theme.spacing('1');
+    height: theme.spacing('4');
+    flex-shrink: 0;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px #111;
+    background: theme.$brand-primary;
+  }
+
+  &_title {
+    color: theme.$text-primary;
+    font-size: theme.font-size('headline-large');
+    font-weight: theme.font-weight('bold');
+
+    &--full {
+      @extend .section-subtitle_title;
+
+      @include theme.respond-to('mobile') {
+        display: none;
+      }
+    }
+
+    &--short {
+      @extend .section-subtitle_title;
+      display: none;
+
+      @include theme.respond-to('mobile') {
+        display: block;
+      }
+    }
+  }
+}
+
+.slider-controls {
+  display: flex;
+  gap: theme.spacing('2');
+
+  &-button {
+    cursor: not-allowed;
+    display: flex;
+    width: theme.spacing('6');
+    height: theme.spacing('6');
+    justify-content: center;
+    align-items: center;
+    border-radius: theme.radius('full');
+    box-shadow: inset 0 0 0 2px #111;
+    background: theme.$color-white;
+
+    &--next {
+      background-color: theme.$brand-primary;
+    }
+  }
+
+  @include theme.respond-to('mobile') {
+    display: none;
+  }
+}

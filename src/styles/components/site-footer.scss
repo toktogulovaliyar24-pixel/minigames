@@ -1,0 +1,189 @@
+@use '../abstracts' as theme;
+
+.site-footer {
+  background: theme.$bg-footer;
+  color: theme.$text-on-footer;
+
+  .container {
+    display: flex;
+    padding: theme.spacing('5') theme.spacing('15');
+    flex-direction: column;
+    align-items: flex-start;
+    gap: theme.spacing('8');
+    align-self: stretch;
+
+    @include theme.respond-to('tablet') {
+      padding: theme.spacing('3') theme.spacing('5');
+    }
+
+    @include theme.respond-to('mobile') {
+      padding: theme.spacing('2');
+    }
+  }
+
+  &__top,
+  &__bottom {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__about {
+    display: flex;
+    max-width: 400px;
+    flex-direction: column;
+    gap: theme.spacing('3');
+
+    p {
+      font-size: theme.font-size('body-small');
+      line-height: 150%;
+      font-weight: 400;
+    }
+  }
+
+  &__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: theme.spacing('1');
+    color: theme.$color-white;
+    font-size: theme.font-size('headline-medium');
+    font-weight: theme.font-weight('bold');
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: flex-start;
+    gap: theme.spacing('10');
+    flex-wrap: wrap;
+  }
+
+  &__group {
+    display: flex;
+    min-width: 96px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: theme.spacing('2');
+
+    h2 {
+      color: theme.$color-white;
+      font-size: theme.font-size('label-large');
+      font-weight: theme.font-weight('bold');
+    }
+
+    a {
+      font-size: theme.font-size('body-small');
+      font-weight: 400;
+      color: theme.$text-on-footer;
+
+      &:hover {
+        color: theme.$color-white;
+      }
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: theme.spacing('2');
+
+    a {
+      display: flex;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: theme.$bg-footer-low;
+      color: theme.$color-white;
+      font-size: theme.font-size('body-medium');
+      line-height: 1;
+
+      &:hover {
+        background-color: theme.$bg-footer-lowest;
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  &__bottom {
+    align-items: center;
+    padding-top: theme.spacing('3');
+    border-top: 1px solid theme.$bg-footer-low;
+    font-size: theme.font-size('label-medium');
+
+    p,
+    a {
+      color: theme.$text-on-footer;
+      font-size: theme.font-size('body-small');
+      font-weight: 400;
+    }
+  }
+
+  &__credit {
+    display: inline-flex;
+    align-items: center;
+    gap: theme.spacing('1');
+  }
+
+  &__rs-badge,
+  &__github-icon {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: theme.font-size('label-tiny');
+    font-weight: theme.font-weight('bold');
+  }
+
+  &__rs-badge {
+    background: theme.$text-primary;
+    color: theme.$brand-primary;
+  }
+
+  &__github-icon {
+    background: theme.$color-white;
+    color: theme.$text-primary;
+    font-size: 10px;
+  }
+
+  @include theme.respond-to('tablet') {
+    &__top {
+      flex-direction: column;
+      gap: theme.spacing('5');
+    }
+
+    &__nav {
+      justify-content: space-between;
+      width: 100%;
+      gap: theme.spacing('5');
+    }
+
+    &__bottom {
+      flex-wrap: wrap;
+      gap: theme.spacing('2');
+    }
+  }
+
+  @include theme.respond-to('mobile') {
+    &__nav {
+      flex-wrap: wrap;
+      gap: theme.spacing('5');
+    }
+
+    &__bottom {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+}

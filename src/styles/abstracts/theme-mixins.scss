@@ -1,0 +1,18 @@
+@use 'sass:map';
+@use './theme-sizes' as sizes;
+
+@mixin respond-to($breakpoint) {
+  @if map.has-key(sizes.$breakpoints, $breakpoint) {
+    @media (max-width: map.get(sizes.$breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+@mixin min-width($breakpoint) {
+  @if map.has-key(sizes.$breakpoints, $breakpoint) {
+    @media (min-width: map.get(sizes.$breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}

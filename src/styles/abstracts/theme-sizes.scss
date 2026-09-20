@@ -1,0 +1,71 @@
+@use 'sass:map';
+
+// Spacing scale
+$spacing: (
+  '05': 4px,
+  '1': 8px,
+  '2': 16px,
+  '3': 24px,
+  '4': 32px,
+  '5': 40px,
+  '6': 48px,
+  '7': 56px,
+  '8': 64px,
+  '9': 72px,
+  '10': 80px,
+  '11': 88px,
+  '12': 96px,
+  '13': 104px,
+  '14': 112px,
+  '15': 120px,
+);
+
+// Border radius
+$radius: (
+  'tiny': 4px,
+  'small': 8px,
+  'medium': 12px,
+  'large': 16px,
+  'xlarge': 24px,
+  'full': 9999px,
+);
+
+// Button padding
+$button-padding: (
+  'small': 16px 8px,
+  'medium': 20px 10px,
+  'large': 24px 16px,
+  'icon': 8px,
+);
+
+// Breakpoints
+$breakpoints: (
+  'mobile': 375.5px,
+  'tablet': 768px,
+  'desktop': 1920px,
+);
+
+// Slider offsets
+$slider-offsets: (
+  'default': -176px,
+  'zero': 0px,
+);
+
+@function get-spacing($key) {
+  @return map.get($spacing, $key);
+}
+
+@function get-radius($key) {
+  @return map.get($radius, $key);
+}
+
+@function get-breakpoint($name) {
+  @if map.has-key($breakpoints, $name) {
+    @return map.get($breakpoints, $name);
+  }
+  @error 'Breakpoint "#{$name}" not found.';
+}
+
+@function get-slider-offset($key) {
+  @return map.get($slider-offsets, $key);
+}

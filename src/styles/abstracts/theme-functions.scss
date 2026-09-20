@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use './theme-fonts' as fonts;
+@use './theme-sizes' as sizes;
+
+@function spacing($key) {
+  @return sizes.get-spacing($key);
+}
+
+@function radius($key) {
+  @return sizes.get-radius($key);
+}
+
+@function font-size($key) {
+  @return map.get(fonts.$font-sizes, $key);
+}
+
+@function font-weight($key) {
+  @return map.get(fonts.$font-weights, $key);
+}
