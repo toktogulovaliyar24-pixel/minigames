@@ -40,10 +40,10 @@ export function createGamesSlider(): HTMLElement {
           <h2 class="section-subtitle_title--short">New Games</h2>
         </div>
         <div class="slider-controls">
-          <button class="slider-controls-button slider-controls-button--prev" type="button" aria-label="prev" disabled="disabled">
+          <button class="slider-controls-button slider-controls-button--prev" type="button" aria-label="prev">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.825 9L9.425 14.6L8 16L1.19209e-07 8L8 -9.53674e-07L9.425 1.4L3.825 7H16V9H3.825Z" fill="#242145"/></svg>
           </button>
-          <button class="slider-controls-button slider-controls-button--next" type="button" aria-label="next" disabled="disabled">
+          <button class="slider-controls-button slider-controls-button--next" type="button" aria-label="next">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12.175 9H1.19209e-07V7H12.175L6.575 1.4L8 -9.53674e-07L16 8L8 16L6.575 14.6L12.175 9Z" fill="#242145"/></svg>
           </button>
         </div>
@@ -60,9 +60,8 @@ export function createGamesSlider(): HTMLElement {
     card.className = `game-card game-card--${game.size}`;
     card.innerHTML = `
       <img class="game-card__image" src="${game.image}" alt="${game.title}">
-      ${
-        game.rating
-          ? `
+      ${game.rating
+        ? `
         <div class="game-card__overlay">
           <h3>${game.title}</h3>
           <div class="game-card__stats">
@@ -79,7 +78,7 @@ export function createGamesSlider(): HTMLElement {
           </div>
         </div>
       `
-          : ''
+        : ''
       }
     `;
     track?.append(card);
