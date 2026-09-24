@@ -60,8 +60,9 @@ export function createGamesSlider(): HTMLElement {
     card.className = `game-card game-card--${game.size}`;
     card.innerHTML = `
       <img class="game-card__image" src="${game.image}" alt="${game.title}">
-      ${game.rating
-        ? `
+      ${
+        game.rating
+          ? `
         <div class="game-card__overlay">
           <h3>${game.title}</h3>
           <div class="game-card__stats">
@@ -78,7 +79,7 @@ export function createGamesSlider(): HTMLElement {
           </div>
         </div>
       `
-        : ''
+          : ''
       }
     `;
     track?.append(card);
